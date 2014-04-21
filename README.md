@@ -21,9 +21,13 @@ the [rtlsdr~] object sends out raw IQ data from an rtlSDR device.
 [rtlsdr~] responds to following messages:
 
 start : start the radio
+
 stop : stop the radio
+
 freq <freq in Hz> [immediate] : set frequency in Hz. If immediate is set to 1 then frequency is changed immediately. Otherwise will take effect after start message.
+
 gain <gain in dB> [immediate] : set RF gain. If immediate is set to 1 then gain is changed immediately. Otherwise will take effect after start message. Default is AUTO. Note: -10 will also set auto.
+
 samplerate <samplerate> : set sample rate. Takes effect after start message. default is current Pd/Max sample rate.
 	
 Note that the example patches run inside block~ (pd) and poly~ (max) to allow higher sample rate for better wide band FM detection.
