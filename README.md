@@ -48,6 +48,8 @@ Then click the "start" message
 
 Pd Linux:
 ====
+Note: The external was compiled for Ubuntu 14.04 - You may need to rebuild it for your system. See below.
+
 Plug in your rtlSDR radio.
 
 In folder pd/linux/, run rtlSDR-block.pd, with pd-extended. 
