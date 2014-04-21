@@ -50,7 +50,7 @@ You will control the radio from inside the rtlsdr-fm1-poly~.maxpat subpatch (whi
 click the green "start" message
 
 
-Compiling source:
+Compiling from source:
 ====
 
 Pd MacOS
@@ -78,9 +78,7 @@ I used vast amounts of code from rtl_fm by Kyle Keen, http://kmkeen.com/rtl-demo
 rtl_fm is part of the rtl-sdr distribution.
 
 Many thanks to:
-Joseph Deken
-Katja Vetter
-Fred Jan Kraan
+Joseph Deken, Katja Vetter, and Fred Jan Kraan
 
 New Blankets http://newblankets.org
 
