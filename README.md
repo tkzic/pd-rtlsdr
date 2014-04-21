@@ -18,7 +18,7 @@ Pd MacOS:
 ====
 Plug in your rtlSDR radio.
 
-In folder pd/macOS, run rtlSDR-block.pd, with pd-extended.
+In folder pd/macOS/, run rtlSDR-block.pd, with pd-extended.
  
 Click on the [pd radioblock] object to open the subpatch. 
 
@@ -28,7 +28,7 @@ Pd Linux:
 ====
 Plug in your rtlSDR radio.
 
-In folder pd/linux, run rtlSDR-block.pd, with pd-extended. 
+In folder pd/linux/, run rtlSDR-block.pd, with pd-extended. 
 
 Click on the [pd radioblock] object to open the subpatch. 
 
@@ -41,7 +41,7 @@ Max MacOS:
 
 Plug in your rtlSDR radio.
 
-In folder max, run rtlsdr-fm1.maxpat 
+In folder max/, run rtlsdr-fm1.maxpat 
 
 Click on the green toggle in the upper left corner to start DSP
 
