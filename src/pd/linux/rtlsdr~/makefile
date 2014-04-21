@@ -1,23 +1,32 @@
 NAME=rtlsdr~
 CSYM=rtlsdr_tilde
 #
-# this will be a linux prototype makefile for Pd externals - tz
 #
-# this is working 4/20/2014
-# but needed to use shared libraries for librtlsdr and libusb-1.0
-# I wonder if there is a way it will work with static? or if it makes a difference?
-# 
+# 4/20/2014
 #
-# PDINCLUDE = # -I../../src
+# have made local copies of the libraries for libusb and librtlsdr
+# this may not work on your system
+#
+# Would suggest installing rtl-sdr and libusb-1.0 to get the libraries for your system
+#
+# to install librtlsdr see: http://sdr.osmocom.org/trac/wiki/rtl-sdr
+# Follow the instructions to clone the archive, run cmake, and make to build and install
+#
+# for libusb try sudo apt-get install libusb-1.0
+#
+# Then try changing the following. These are the original locations of those libraries on Ubuntu 14.04
+# You can find them on your system by using something like: sudo find / -name libusb-1.0*
+#
+# original locations:
+#
+# SDRLIBINC = -I/usr/include/libusb-1.0 
+# SDRLIBS = /usr/local/lib/librtlsdr.so /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 
-# rtlsdr stuff
+#
 
-# SDRLIBINC = # -I/opt/local/include/libusb-1.0 -I../include
-SDRLIBINC = -I/usr/include/libusb-1.0 -I../include
-# SDRLIBS = # /usr/local/lib/libusb32-1.0.a ./rtlsdr/lib/librtlsdr32.a
-# SDRLIBS = ./rtlsdr/lib/librtlsdr.a /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-SDRLIBS = /usr/local/lib/librtlsdr.so /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-# SDRFRAMEWORKS = #-framework foundation -framework iokit
+SDRLIBINC = # -I/usr/include/libusb-1.0 -I../include
+SDRLIBS = ./rtlsdr/lib/librtlsdr.so ./rtlsdr/lib/libusb-1.0.so
+
 SDRINC = -I./rtlsdr/include
 SDRSRC = ./rtlsdr/*.c
 SDROBJ = rtl_fm3.o convenience.o
