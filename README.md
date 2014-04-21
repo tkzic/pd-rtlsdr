@@ -58,6 +58,8 @@ Then click the "start" message
 
 Note: you may need to deal with these Usb capture and root permission issues. http://zerokidz.com/ideas/?p=10462
 
+Note: I was only able to get Pd to run with Alsa audio drivers at 44.1KHz - and the audio quality was generally not as nice as on MacOS. If you are able to run Pd with other drivers or sample rates I would be interested in knowing about it.
+
 Max MacOS:
 ====
 
@@ -81,11 +83,15 @@ copy the src/pd/macOS/rtlsdr~ folder into Contents/Resources/extra/ inside the p
 
 Then run the makefile inside rtlsdr~ folder: sudo make
 
-Pd MacOS
+Pd linux (Ubuntu)
 ====
 copy the src/pd/linux/rtlsdr~ folder into /usr/lib/pd-extended/extra/ 
 
 Then run the makefile inside rtlsdr~ folder: sudo make
+
+Note: Please read the notes in the makefile about libraries: libusb-1.0 and librtlsdr. You may need to install these dependencies and point the makefile at the correct location of these libs on your system.
+
+Also please note that you may experience issues with root permission, or USB capture. See this post for a solution: http://zerokidz.com/ideas/?p=10462
 
 Max MacOS
 ====
