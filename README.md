@@ -15,6 +15,8 @@ Running Max version 6.1.6 and Pd-extended version 0.43.4
 
 Note: You can only run one radio and one instance of the [rtlsdr~] object. This will be fixed in future releases. 
 
+For more information about rtl-sdr: http://sdr.osmocom.org/trac/wiki/rtl-sdr
+
 
 Quick-start:
 ====
