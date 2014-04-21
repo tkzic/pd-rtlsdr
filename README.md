@@ -24,9 +24,9 @@ start : start the radio
 
 stop : stop the radio
 
-freq <freq in Hz> [immediate] : set frequency in Hz. If immediate is set to 1 then frequency is changed immediately. Otherwise will take effect after start message.
+freq [freq in Hz] [immediate (optional)] : set frequency in Hz. If immediate is set to 1 then frequency is changed immediately. Otherwise will take effect after start message.
 
-gain <gain in dB> [immediate] : set RF gain. If immediate is set to 1 then gain is changed immediately. Otherwise will take effect after start message. Default is AUTO. Note: -10 will also set auto.
+gain [gain in dB] [immediate (optional)] : set RF gain. If immediate is set to 1 then gain is changed immediately. Otherwise will take effect after start message. Default is AUTO. Note: -10 will also set auto.
 
 samplerate <samplerate> : set sample rate. Takes effect after start message. default is current Pd/Max sample rate.
 	
