@@ -126,12 +126,11 @@ Then run the xcode project
 
 Acknowledgement:
 ====
-I used vast amounts of code from rtl_fm by Kyle Keen, http://kmkeen.com/rtl-demod-guide/:
+I used vast amounts of code from rtl_fm by Kyle Keen, http://kmkeen.com/rtl-demod-guide/: rtl_fm is part of the rtl-sdr distribution.
 
-rtl_fm is part of the rtl-sdr distribution.
+linux build and Pd example patches developed by Katja Vetter
 
-Many thanks to:
-Joseph Deken, Katja Vetter, and Fred Jan Kraan
+Many thanks to: Joseph Deken, and Fred Jan Kraan
 
 New Blankets http://newblankets.org
 
