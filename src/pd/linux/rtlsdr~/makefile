@@ -2,35 +2,32 @@ NAME=rtlsdr~
 CSYM=rtlsdr_tilde
 #
 #
-# 4/20/2014
+# 5/6/2014
 #
-# have made local copies of the libraries for libusb and librtlsdr
-# this may not work on your system
+# This directory that contains this makefile needs to be a subdirectory of 
+# /usr/lib/pd-extended/extra  - which is created by installing pd-extended
 #
-# Would suggest installing rtl-sdr and libusb-1.0 to get the libraries for your system
+# Instructions for instaling pd-extended here: http://puredata.info/docs/faq/debian  
+#
+# Dependencies:
+#
+# libusb-1.0
+# rtlsdr
 #
 # to install librtlsdr see: http://sdr.osmocom.org/trac/wiki/rtl-sdr
 # Follow the instructions to clone the archive, run cmake, and make to build and install
 #
 # for libusb try sudo apt-get install libusb-1.0
 #
-# Then try changing the following. These are the original locations of those libraries on Ubuntu 14.04
-# You can find them on your system by using something like: sudo find / -name libusb-1.0*
-#
-# original locations:
-#
-# SDRLIBINC = -I/usr/include/libusb-1.0 
-# SDRLIBS = /usr/local/lib/librtlsdr.so /usr/lib/x86_64-linux-gnu/libusb-1.0.so
-
 #
 
-SDRLIBINC = # -I/usr/include/libusb-1.0 -I../include
-SDRLIBS = ./rtlsdr/lib/librtlsdr.so ./rtlsdr/lib/libusb-1.0.so
+USBLIBINC = -I/usr/include/libusb-1.0
 
-SDRINC = -I./rtlsdr/include
+SDRINC = -I./rtlsdr/include -I./
 SDRSRC = ./rtlsdr/*.c
 SDROBJ = rtl_fm3.o convenience.o
 LIBTHREAD = -lpthread
+
 # ----------------------- LINUX i386 -----------------------
 
 pd_linux: $(NAME).pd_linux
@@ -44,13 +41,13 @@ LINUXCFLAGS = -DPD -O2 -funroll-loops -fomit-frame-pointer -fPIC \
 LINUXINCLUDE =  -I../../src
 
 .c.pd_linux:
-	$(CC) $(LINUXCFLAGS) $(LINUXINCLUDE) $(SDRLIBINC) $(SDRINC) -c $*.c $(SDRSRC)
-	$(CC) -shared -o $*.pd_linux $*.o -lc -lm $(LIBTHREAD) $(SDROBJ) $(SDRLIBS) 
-	strip --strip-unneeded $*.pd_linux
-	rm -f $*.o
-
+	$(CC) $(LINUXCFLAGS) $(LINUXINCLUDE) $(SDRLIBINC) $(SDRINC) $(USBLIBINC) -c $*.c $(SDRSRC) \
+	$(pkg-config --cflags libusb-1.0) $(pkg-config --cflags librtlsdr)
+	$(CC) -shared -o $*.pd_linux $*.o -lc -lm $(LIBTHREAD) $(SDROBJ) \
+	`pkg-config --libs libusb-1.0` `pkg-config --libs librtlsdr`
+	 
 
 # ----------------------------------------------------------
 
 clean:
-	rm -f *.o *.pd_* so_locations
+	rm -f *.o *.pd_*
