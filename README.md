@@ -3,7 +3,7 @@ pd-rtlsdr
 
 Pd and Max externals for rtl-SDR
 
-April 20, 2014
+May 6, 2014
 
 This is a pre-release version. Documentation is in progress. Here are couple of demo videos:
 
@@ -87,13 +87,37 @@ Then run the makefile inside rtlsdr~ folder: sudo make
 
 Pd linux (Ubuntu)
 ====
-copy the src/pd/linux/rtlsdr~ folder into /usr/lib/pd-extended/extra/ 
+1. Install pd-extended and dependencies
 
-Then run the makefile inside rtlsdr~ folder: sudo make
 
-Note: Please read the notes in the makefile about libraries: libusb-1.0 and librtlsdr. You may need to install these dependencies and point the makefile at the correct location of these libs on your system.
+#
+# Instructions for instaling pd-extended here: http://puredata.info/docs/faq/debian  
+#
+# Dependencies:
+#
+# libusb-1.0
+# rtlsdr
+#
+# to install librtlsdr see: http://sdr.osmocom.org/trac/wiki/rtl-sdr
+# Follow the instructions to clone the archive, run cmake, and make to build and install
+#
+# for libusb try sudo apt-get install libusb-1.0
+#
+#
+
+2. Make sure that an rtlsdr radio runs from the command line using rtl_fm or rtl_test:
 
 Also please note that you may experience issues with root permission, or USB capture. See this post for a solution: http://zerokidz.com/ideas/?p=10462
+
+3. Copy the rtlsdr~ folder to /usr/lib/pd-extended/extra (you will need root permission)
+
+# sudo cp -r rtlsdr~ /usr/lib/pd-extended/extra
+
+4. inside the rtlsdr~ folder run the makefile
+
+# make
+
+5. Then you should be able to run the sample pd patches (see above) - although you may want to remove the rtlsdr~.pd_linux external from the local directory where the pd patches are located.
 
 Max MacOS
 ====
